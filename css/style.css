@@ -11,9 +11,21 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 30px;
   background: white;
   z-index: 100;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 28px;  /* アイコンサイズ */
+  height: 28px;
+  margin-right: 8px;
 }
 
 .logo {
@@ -22,37 +34,41 @@ header {
 }
 
 .menu-toggle {
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
+  display: block; /* 常に表示 */
 }
 
 .hero {
   width: 100%;
-  height: 100vh;
   overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .slider {
   display: flex;
-  width: 300%;
-  animation: slide 12s infinite;
+  gap: 15px;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 .slide {
-  width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 80%; /* 横幅を80%にして見切れ感を出す */
+  scroll-snap-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.5s ease;
 }
+
 
 .slide img {
   width: 100%;
-  height: 100vh;
+  height: auto;
+  display: block;
   object-fit: cover;
-}
-
-@keyframes slide {
-  0%, 33% { transform: translateX(0); }
-  34%, 66% { transform: translateX(-100%); }
-  67%, 100% { transform: translateX(-200%); }
 }
 
 .catch {
@@ -80,6 +96,7 @@ header {
   justify-content: center;
   gap: 20px;
   margin: 30px 0;
+  flex-wrap: wrap;
 }
 
 .work-item img {
@@ -98,8 +115,20 @@ header {
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 30px;
+  padding: 20px 0;
+  text-align: center;
   border-top: 1px solid #ccc;
+  color: #888;
+}
+
+footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+footer .insta-icon img {
+  width: 28px;
+  height: 28px;
 }
